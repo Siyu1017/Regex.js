@@ -1,74 +1,25 @@
-function isValidHttpUrl(url) {
-  const regex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})(\/[\w.-]*)*\/?$/;
-  return regex.test(url);
-}
-HTTPS（Hypertext Transfer Protocol Secure）：
-Copy codefunction isValidHttpsUrl(url) {
-  const regex = /^(https:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})(\/[\w.-]*)*\/?$/;
-  return regex.test(url);
-}
-FTP（File Transfer Protocol）：
-Copy codefunction isValidFtpUrl(url) {
-  const regex = /^ftp:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-SFTP（Secure File Transfer Protocol）：
-Copy codefunction isValidSftpUrl(url) {
-  const regex = /^sftp:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-SMTP（Simple Mail Transfer Protocol）：
-Copy codefunction isValidSmtpUrl(url) {
-  const regex = /^smtp:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-POP3（Post Office Protocol version 3）：
-Copy codefunction isValidPop3Url(url) {
-  const regex = /^pop3:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-IMAP（Internet Message Access Protocol）：
-Copy codefunction isValidImapUrl(url) {
-  const regex = /^imap:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-LDAP（Lightweight Directory Access Protocol）：
-Copy codefunction isValidLdapUrl(url) {
-  const regex = /^ldap:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-DNS（Domain Name System）：
-Copy codefunction isValidDnsUrl(url) {
-  const regex = /^dns:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-FTPS（FTP over SSL/TLS）：
-Copy codefunction isValidFtpsUrl(url) {
-  const regex = /^ftps:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-SFTPS（Secure FTP over SSL/TLS）：
-Copy codefunction isValidSftpsUrl(url) {
-  const regex = /^sftps:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-SMTPS（SMTP over SSL/TLS）：
-Copy codefunction isValidSmtpsUrl(url) {
-  const regex = /^smtps:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-IMAPS（IMAP over SSL/TLS）：
-Copy codefunction isValidImapsUrl(url) {
-  const regex = /^imaps:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-LDAPS（LDAP over SSL/TLS）：
-Copy codefunction isValidLdapsUrl(url) {
-  const regex = /^ldaps:\/\/[^\s\/$.?#].[^\s]*$/;
-  return regex.test(url);
-}
-DNS over HTTPS（DNS over HTTPS）：
-Copy codefunction isValidDnsOverHttpsUrl(url) {
-  const regex = /^https:\/\/dns\.google\/dns-query$/;
-  return regex.test(url);
-}
+FTP /^ftp:\/\/[^\s\/$.?#].[^\s]*$/;
+
+SFTP /^sftp:\/\/[^\s\/$.?#].[^\s]*$/;
+
+SMTP /^smtp:\/\/[^\s\/$.?#].[^\s]*$/;
+
+POP3 /^pop3:\/\/[^\s\/$.?#].[^\s]*$/;
+
+IMAP /^imap:\/\/[^\s\/$.?#].[^\s]*$/;
+
+LDAP /^ldap:\/\/[^\s\/$.?#].[^\s]*$/;
+
+DNS /^dns:\/\/[^\s\/$.?#].[^\s]*$/;
+
+FTPS /^ftps:\/\/[^\s\/$.?#].[^\s]*$/;
+
+SFTPS /^sftps:\/\/[^\s\/$.?#].[^\s]*$/;
+
+SMTPS /^smtps:\/\/[^\s\/$.?#].[^\s]*$/;
+
+IMAPS /^imaps:\/\/[^\s\/$.?#].[^\s]*$/;
+
+LDAPS /^ldaps:\/\/[^\s\/$.?#].[^\s]*$/;
+
+DNS over HTTPS /^https:\/\/dns\.google\/dns-query$/;
