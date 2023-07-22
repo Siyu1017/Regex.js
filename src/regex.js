@@ -13,7 +13,7 @@ class Regex {
             "hex4": /^#([a-fA-F0-9]{4})$/,
             "hex6": /^#([a-fA-F0-9]{6})$/,
             "hex8": /^#([a-fA-F0-9]{8})$/,
-            "hex": /^#([a-fA-F0-9]{3,4}{1,2})$/,
+            "hex": /^#([a-fA-F0-9]{3,4}){1,2}$/,
             "rgb": /^rgb\((\d{1,3})(,| )\s*(\d{1,3})(,| )\s*(\d{1,3})\)$/,
             "rgba": /^rgba\((\d{1,3})(,| )\s*(\d{1,3})(,| )\s*(\d{1,3})(,| )\s*(\d?\.?\d+)\)$/,
             "hsl": /^hsl\((\d{1,3}),\s*(\d{1,3})%,\s*(\d{1,3})%,\s*(\d?\.?\d+)\)$/,
@@ -25,10 +25,30 @@ class Regex {
             "ip": /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/,
             "email": /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
             "data": /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*?)\s*$/i,
-            "url": /^([a-zA-Z]+:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i
+            "url": /^([a-zA-Z]+:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i,
         }
     }
     constructor(name) {
-
+        var path = name.split(" ");
+        var folder = this.list;
+        var detail = {
+            message: "",
+            status: "success",
+            regexp: ""
+        }
+        path.forEach(p => {
+            if (folder.hasOwnProperty(p) == true) {
+                folder = folder[p];
+            } else {
+                return detail.status = "error", detail.message = `Name ${p} is not a valid value in list.`;
+            }
+        });
+        detail.status == "success" && (detail.regexp = folder, this.regexp = folder);
+        this.detail = detail;
+        return this;
+    }
+    test(str) {
+        if (typeof str != "string") return;
+        return this.regexp.test(str);
     }
 }
